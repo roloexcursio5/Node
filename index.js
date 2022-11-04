@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: false}));
 // importo mongoose y genero una función asíncrona para usar luego
 const mongoose = require("mongoose");
 const connectToMongo = async () => {
-  await mongoose.connect(process.env.SECRETSESSION).then(()=> console.log("se conectó bien")).catch(console.error);
+  await mongoose.connect(process.env.SECRETSESSION);
   return mongoose;
 };  // me hizo sacar todos los parámetros pq desde la versión 6 están deprecados (no sé que impacto tiene eso). Asi funciona
 
