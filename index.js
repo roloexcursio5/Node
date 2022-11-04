@@ -17,17 +17,15 @@ const serieSchema = new mongoose.Schema({
       pais: String
     });
     
-    const tabla = "series"  // es el nombre de la coleccion
-
 // se define la coleccion usando el esquema
-const coleccion = mongoose.model(tabla, serieSchema);
+const coleccion = mongoose.model("series", serieSchema);
 
 //API
 app.get('/', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   async function main(){
     await connectToMongo();
-    return await coleccion.find({}).sort({"titulo": 1})}
+    return await coleccion.find({})}
   main()
     .then((series) => {	 
       res.status(200).send(series);
