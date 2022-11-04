@@ -2,6 +2,9 @@ const express = require('express');
 const	app = express();
 require('dotenv').config();
 
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 // importo mongoose y genero una función asíncrona para usar luego
 const mongoose = require("mongoose");
 const connectToMongo = async () => {
