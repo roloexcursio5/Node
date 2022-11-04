@@ -9,6 +9,7 @@ const connectToMongo = async () => {
   return mongoose;
 };  // me hizo sacar todos los parámetros pq desde la versión 6 están deprecados (no sé que impacto tiene eso). Asi funciona
 
+
 // se genera el esquema
 const serieSchema = new mongoose.Schema({
       id: Number,
