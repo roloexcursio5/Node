@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   async function main(){
     await connectToMongo();
-    return await coleccion.find({})}
+    return await coleccion.find({}).sort({"titulo": 1})}
   main()
     .then((series) => {	 
       res.status(200).send(series);
@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     .finally(() => mongoose.connection.close());
 });
 
-/*
+
 //API INDIVIDUAL
 app.get('/:id', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -51,7 +51,7 @@ app.get('/:id', (req, res) => {
     })
     .catch(console.error)
     .finally(() => mongoose.connection.close());
-});*/
+});
 
 
 app.listen(8080);
